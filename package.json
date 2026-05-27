@@ -1,0 +1,35 @@
+{
+  "name": "growpdf",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "server": "node server/index.js",
+    "start": "concurrently --names server,client --prefix-colors blue,green \"npm run server\" \"npm run dev\"",
+    "build": "vite build",
+    "preview": "node server/index.js"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "concurrently": "^9.2.1",
+    "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^4.5.1",
+    "@tailwindcss/vite": "^4.3.0",
+    "axios": "^1.16.1",
+    "clsx": "^2.1.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "framer-motion": "^12.40.0",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^1.16.0",
+    "multer": "^2.1.1",
+    "pdfjs-dist": "^5.6.205",
+    "react-pdf": "^10.4.1",
+    "react-router-dom": "^7.15.1",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.0",
+    "zustand": "^5.0.13"
+  }
+}
