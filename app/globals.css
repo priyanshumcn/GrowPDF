@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C4623F;
+  --color-primary-light: #D9896B;
+  --color-accent: #8B3A1F;
+  --color-highlight: #E8B04A;
+  --color-cream: #FAF6EE;
+  --color-warm: #F5EBD9;
+  --color-text: #2C1810;
+  --color-text-light: #6B5544;
+  --color-success: #4A7C59;
+  --color-warning: #C97B2E;
+
+  --font-serif: "Source Serif Pro", "Georgia", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --shadow-soft: 0 2px 12px rgba(139, 58, 31, 0.06), 0 1px 3px rgba(139, 58, 31, 0.04);
+  --shadow-medium: 0 4px 24px rgba(139, 58, 31, 0.10), 0 2px 6px rgba(139, 58, 31, 0.06);
+  --shadow-glow: 0 0 30px rgba(196, 98, 63, 0.18);
+  --shadow-card: 0 1px 2px rgba(44, 24, 16, 0.04), 0 8px 32px rgba(139, 58, 31, 0.08);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.6s ease-out;
+  --animate-slide-up: slideUp 0.5s ease-out;
+  --animate-slide-in: slideIn 0.4s ease-out;
+  --animate-scale-in: scaleIn 0.3s ease-out;
+  --animate-pulse-soft: pulseSoft 2s ease-in-out infinite;
+  --animate-gradient: gradient 8s linear infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-rotate: rotate 20s linear infinite;
+  --animate-bounce-soft: bounceSoft 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+html, body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif { font-family: var(--font-serif); }
+.font-sans { font-family: var(--font-sans); }
+
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.text-highlight { color: var(--color-highlight); }
+.bg-primary { background-color: var(--color-primary); }
+.bg-cream { background-color: var(--color-cream); }
+.bg-warm { background-color: var(--color-warm); }
+
+.shadow-soft { box-shadow: var(--shadow-soft); }
+.shadow-medium { box-shadow: var(--shadow-medium); }
+.shadow-glow { box-shadow: var(--shadow-glow); }
+.shadow-card { box-shadow: var(--shadow-card); }
+
+.book-card {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+}
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-medium);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #F5EBD9 25%, #FAF6EE 50%, #F5EBD9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-warm); }
+::-webkit-scrollbar-thumb { background: var(--color-primary-light); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media print { body * { display: none !important; } body::after { content: "Printing disabled for protected content."; display: block; padding: 20px; font-size: 18px; color: #333; } }
+.reader-no-select { user-select: none !important; -webkit-user-select: none !important; }
+.reader-no-context * { -webkit-touch-callout: none !important; }
+.reader-protected { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; pointer-events: auto; }
+.reader-protected img, .reader-protected canvas { pointer-events: none !important; -webkit-user-drag: none !important; user-drag: none !important; }
+.reader-overlay { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.screenshot-block { position: fixed; inset: 0; z-index: 9999; background: #000; display: flex; align-items: center; justify-content: center; }
+.night-overlay { position: fixed; inset: 0; pointer-events: none; z-index: 50; mix-blend-mode: soft-light; }
